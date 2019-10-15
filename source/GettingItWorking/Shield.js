@@ -5,7 +5,7 @@ class Ship {
     return this.energy
   }
 
-  decreaseEnergy = function(given_energy) {
+  decreaseShipEnergy = function(given_energy) {
     this.energy -= given_energy
   }
 
@@ -33,7 +33,7 @@ class Shields {
     return this.energy
   }
 
-  increaseEnergy = function(given_energy) {
+  increaseShieldsEnergy = function(given_energy) {
     var previousEnergy = this.energy
     this.energy += given_energy
     if (this.energy > 10000) {
@@ -44,7 +44,7 @@ class Shields {
     }
   }
 
-  decreaseEnergy = function(damage) {
+  decreaseShieldsEnergy = function(damage) {
     var previousEnergy = this.energy
     this.energy -= damage
     if (this.energy < 0) {
