@@ -13,7 +13,7 @@ class Ship {
     this.decreaseShipEnergy(this.shields.increaseShieldsEnergy(value))
   }
   attacked = function(value) {
-    this.shields.decreaseShipEnergy(value)
+    this.shields.decreaseShieldsEnergy(value)
   }
 }
 
