@@ -12,6 +12,9 @@ class Ship {
   transferEnergy = function(value) {
     this.decreaseEnergy(this.shields.increaseEnergy(value))
   }
+  attacked = function(value) {
+    this.shields.decreaseEnergy(value)
+  }
 }
 
 class Shields {
@@ -20,8 +23,8 @@ class Shields {
   isUp = function() {
     return this.isUped
   }
-  isDown = function() {
-    this.isUped = false
+  buckled = function() {
+    return !this.isUped
   }
   raise = function() {
     this.isUped = true
@@ -38,6 +41,18 @@ class Shields {
       return 10000 - previousEnergy
     } else {
       return given_energy
+    }
+  }
+
+  decreaseEnergy = function(damage) {
+    var previousEnergy = this.energy
+    this.energy -= damage
+    if (this.energy < 0) {
+      this.energy = 0
+      this.isUped = false
+      return damage - previousEnergy
+    } else {
+      return 0
     }
   }
 }

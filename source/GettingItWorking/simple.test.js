@@ -45,9 +45,21 @@ describe("simple shields", function() {
     expect(ship.shields.getEnergy() === 10000).toBe(true)
   })
 
-  it("sheild down", function() {
-    ship.transferEnergy(12000)
-    expect(ship.getEnergy() == 32000).toBe(true)
-    expect(ship.shields.getEnergy() === 10000).toBe(true)
+  it("shields get damage below its energy", function() {
+    shields.decreaseEnergy(1500)
+    expect(shields.getEnergy() === 500).toBe(true)
+  })
+
+  it("shields get damage over its energy", function() {
+    expect(shields.decreaseEnergy(2500) === 500).toBe(true)
+    expect(shields.getEnergy() === 0).toBe(true)
+    expect(ship.shields.buckled()).toBe(true)
+  })
+
+  it("ship attacked", function() {
+    ship.shields.raise()
+    ship.attacked(1500)
+    expect(ship.shields.getEnergy() === 500)
+    expect(ship.shields.buckled()).toBe(false)
   })
 })
