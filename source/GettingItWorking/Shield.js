@@ -10,10 +10,10 @@ class Ship {
   }
 
   transferEnergy = function(value) {
-    this.decreaseEnergy(this.shields.increaseEnergy(value))
+    this.decreaseShipEnergy(this.shields.increaseShieldsEnergy(value))
   }
   attacked = function(value) {
-    this.shields.decreaseEnergy(value)
+    this.shields.decreaseShipEnergy(value)
   }
 }
 
