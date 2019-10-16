@@ -1,6 +1,17 @@
 class Ship {
   energy = 40000
   shields = new Shields()
+  phaser
+  shieldGen
+  engine
+
+  constructor(phaser, shieldGen, engine) {
+    this.phaser = phaser
+    this.shieldGen = shieldGen
+    this.engine = engine
+
+  }
+
   getEnergy = function() {
     return this.energy
   }
@@ -14,5 +25,12 @@ class Ship {
   }
   attacked = function(value) {
     this.shields.decreaseShieldsEnergy(value)
+    //if(this.shields.buckled()) {
+
+    //}
   }
+
+  /*subsystemDamaged = function(leftOverDamage) {
+    this.shields.buckled()
+  }*/
 }

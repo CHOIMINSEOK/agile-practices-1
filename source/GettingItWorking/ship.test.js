@@ -2,7 +2,7 @@ describe("ship test", function() {
   var ship
 
   beforeEach(function() {
-    ship = new Ship()
+    ship = new Ship(new Phaser(300), new ShieldGen(500), new Engine(200))
   })
 
   it("check ship energy", function() {
@@ -44,4 +44,10 @@ describe("ship test", function() {
     expect(ship.shields.getEnergy() === 500)
     expect(ship.shields.buckled()).toBe(false)
   })
+})
+
+describe("ship subsystem", function() {
+  // it("initate subsystem in ship", function() {
+  //   ship
+  // })
 })
